@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+	<title>Библиотеки</title>
+	<meta charset="utf-8">
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/bootstrap.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet" >
+</head>
+<body >
+	<div id="main" class="col-md-8 col-xs-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+		<div class="row">
+			{% if username != none %}
+				<div class="col-md-12 col-xs-12 col-sm-12"  id="topLib">
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<form action="addBook" method="GET">
+							<input type="submit" class="form-control" value="Добавить книгу">
+						</form>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+						<p id="username">{{username}}</p>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<form action="logOut" method="POST">
+							<input type="submit" class="form-control" value="Выйти">
+						</form>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="col-md-11 col-xs-11 col-sm-11 col-md-offset-1 col-xs-offset-1 col-sm-offset-1" id="mainData">
+				<div class="row">
+					{% for book in books %}
+						<div class="col-md-12 col-xs-12 col-sm-12  book">
+							<div class="col-md-2 col-xs-2 col-sm-2 ">
+								<img src="{{book.Picture}}" class="books" alt="">
+							</div>
+							<div class="col-md-7 col-xs-7 col-sm-7 ">
+								<p>
+									<span class="name">{{book.Name}}</span> <br>
+									<span class="autor"> {{book.Autor}}</span> <br>
+									<span class="other">{{book.Publishing_house }}, {{ book.Publishing_year }}
+								</p>
+							</div>
+							<div class="col-md-3 col-xs-3 col-sm-3">
+								<div class="col-md-12">
+									<form action="editBook/{{book.id}}" method="GET">
+										<input type="submit" class="form-control" value="Изменить">
+									</form>
+								</div>
+								<div class="col-md-12">
+									<form action="deleteBook/{{book.id}}" method="POST">
+										<input type="submit" class="form-control" value="Удалить">
+									</form>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

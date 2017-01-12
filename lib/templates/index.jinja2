@@ -1,0 +1,32 @@
+{% extends "base_entrance.jinja2" %}
+			{% block data %}
+				<form action="/" method="POST">
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p class="errors">{{ error }}</p>
+							<p class="good">{{ good }}</p>
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите логин</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="login" placeholder="Логин">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите пароль</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="password" class="form-control" name="password" placeholder="Пароль">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-4 col-xs-offset-4 col-sm-offset-4">
+							<input type="submit" class="form-control" value="Войти">
+						</div>
+					</div>
+				</form>
+			{% endblock %}

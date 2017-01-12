@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+	<title>Библиотеки</title>
+	<meta charset="utf-8">
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/style.css" rel="stylesheet" >
+</head>
+<body >
+	<div id="main" class="col-md-8 col-xs-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+		<div class="row">
+			{% if username != none %}
+				<div class="col-md-12 col-sm-12 col-xs-12" id="topLib">
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<form action="/indexLib" method="GET">
+							<input type="submit" class="form-control" value="Отмена">
+						</form>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-1 col-xs-offset-1 col-sm-offset-1">
+						<p id="username">{{username}}</p>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<form action="/logOut" method="POST">
+							<input type="submit" class="form-control" value="Выйти">
+						</form>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="col-md-12 col-xs-12 col-sm-12" id="mainData">
+				<form action="/editBook/{{book.id}}" method="POST" enctype="multipart/form-data">
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите название книги</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="name" placeholder="Название" value="{{book.Name}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите автора</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="autor" placeholder="Автор" value="{{book.Autor}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите издательство</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="publishing_house" placeholder="Издательство" value="{{book.Publishing_house}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите год издания</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="publishing_year" placeholder="Год издания" value="{{book.Publishing_year}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-4 col-xs-offset-4 col-sm-offset-4">
+							<input type="submit" class="form-control" value="Изменить">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

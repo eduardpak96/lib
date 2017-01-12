@@ -1,0 +1,57 @@
+{% extends "base_entrance.jinja2" %}
+			{% block data %}
+				<form action="/registerLib" method="POST">
+					<div class=" formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							{% for error in errors %}
+								<p class="errors">{{ error }}</p>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите название библиотеки</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="name" placeholder="Название" value="{{name}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите адрес</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="address" placeholder="Адрес" value="{{address}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите логин</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="text" class="form-control" name="login" placeholder="Логин" value="{{login}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите пароль</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="password" class="form-control" name="password" placeholder="Пароль" value="{{password}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-2 col-xs-offset-2 col-sm-offset-2">
+							<p>Введите подтверждение пароля</p>
+						</div>
+						<div class="col-md-4 col-sm-4 col-md-xs">
+							<input type="password" class="form-control" name="confirm" placeholder="Подтверждение пароля" value="{{confirm}}">
+						</div>
+					</div>
+					<div class="formElement col-md-12 col-xs-12 col-sm-12">
+						<div class="col-md-4 col-sm-4 col-md-xs col-ms-offset-4 col-xs-offset-4 col-sm-offset-4">
+							<input type="submit" class="form-control" value="Зарегистрироваться">
+						</div>
+					</div>
+				</form>
+			{% endblock %}

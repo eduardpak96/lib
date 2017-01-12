@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+	<title>Библиотеки</title>
+	<meta charset="utf-8">
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/bootstrap.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet" >
+</head>
+<body >
+	<div id="main" class="col-md-8 col-xs-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+		<div class="row">
+			{% if username != none %}
+				<div class="col-md-12 col-xs-12 col-sm-12"  id="topLib">
+					<div class="col-md-4 col-sm-4 col-xs-4"></div>
+					<div class="col-md-3 col-sm-3 col-xs-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+						<p id="username">{{username}}</p>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<form action="logOut" method="POST">
+							<input type="submit" class="form-control" value="Выйти">
+						</form>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="col-md-12 col-xs-12 col-sm-12" id="mainData">
+				<div class="row">
+					<div class="col-md-12 col-xs-12 col-sm-12" id=filterMessage>
+						<div class="row">
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<p>Название</p>
+							</div>
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<p>Автор</p>
+								
+							</div>
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<p>Библиотека</p>
+								
+							</div>
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<p>Издательство</p>
+							</div>
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<p>Год издания</p>
+							</div>
+							<div class="col-md-2 col-xs-2 col-sm-2"></div>
+						</div>
+					</div>
+					<div class="col-md-12 col-xs-12 col-sm-12" id=filter>
+						<div class="row">
+							<form action="indexUser" method="POST">
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<input type="text" class="form-control" name="name" value="{{name}}">
+								</div>
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<input type="text" class="form-control" name="autor" value="{{autor}}">
+								</div>
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<select name="lib" class="form-control" size="1">
+										<option value="-1" selected="selected">Не выбрано</option>
+										{% for lib in libs %}
+											<option value="{{lib.id }}">{{lib.Name}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<input type="list" class="form-control" name="publishing_house" value="{{publishing_house}}">
+								</div>
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<input type="text" class="form-control" name="publishing_year" value="{{publishing_year}}">
+								</div>
+								<div class="col-md-2 col-xs-2 col-sm-2">
+									<input type="submit" class="form-control" value="Искать">
+								</div>
+							</form>
+						</div>
+					</div>
+					{% for book in books %}
+						<div class="col-md-12 col-xs-12 col-sm-12  book">
+							<div class="col-md-2 col-xs-2 col-sm-2">
+								<img src="{{book.Picture}}" class="books" alt="">
+							</div>
+							<div class="col-md-10 col-xs-10 col-sm-10">
+								<p>
+									<span class="name">{{book.Name}}</span> <br>
+									<span class="autor"> {{book.Autor}}</span> <br>
+									<span class="other">{{book.Publishing_house }}, {{ book.Publishing_year }}
+								</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

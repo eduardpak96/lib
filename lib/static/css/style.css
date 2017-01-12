@@ -1,0 +1,74 @@
+body{
+	background: #5D1F1F;
+    color: #251200;
+}
+
+div#main{
+	background: #AD803D;
+	margin-top: 20px;
+	padding-bottom: 30px;
+}
+
+div#mainData{
+	margin-top: 20px;
+}
+
+div#filter{
+	margin-bottom: 30px;
+}
+
+div#topLib{
+	margin-top: 20px;
+	padding-bottom: 30px;
+}
+
+a.list{
+	color: #D4A66F;
+}
+
+ul#list{
+	background:  #170E01;
+}
+
+div.formElement{
+	margin: 10px;
+}
+
+p.errors{
+	color: red;
+}
+
+p.good{
+	color: green;
+}
+
+p#username{
+	font-size: 1.5em;
+	border-radius: 10px;
+	border-width: 2px;
+	border-color: red;
+	border-style: dashed;
+	text-align: center;
+}
+
+img.books{
+	height: 100%;
+	width: 100%;
+}
+
+span.name{
+	font-style: bold;
+	font-size: 1.5em;
+}
+
+span.autor{
+	font-size: 1.2em;
+}
+
+span.other{
+	font-size: 1em;
+}
+
+div.book{
+    margin-bottom: 10px;
+}
